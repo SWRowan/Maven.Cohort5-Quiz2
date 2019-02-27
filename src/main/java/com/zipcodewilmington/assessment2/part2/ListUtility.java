@@ -29,13 +29,15 @@ public class ListUtility {
     }
 
     public String join() {
-//        this.answer = answer;
-//        Integer[] quizTime = new Integer[answer.size()];
-//        quizTime = answer.toArray(quizTime);
-//        String str = quizTime.toString(str);
-//        System.out.println(str);
-//        //String answerString = str.join();
-        return null;
+        this.answer = answer;
+        Integer[] quizTime = new Integer[answer.size()];
+        quizTime = answer.toArray(quizTime);
+        String placeHolder = "";
+        for (int i = 0; i < quizTime.length; i++) {
+            placeHolder += quizTime[i];
+        }
+        String ans = placeHolder.join(" , ", placeHolder);
+        return ans;
     }
 
     public Integer mostCommon() {
