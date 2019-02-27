@@ -1,19 +1,34 @@
 package com.zipcodewilmington.assessment2.part1;
 
+import com.j256.ormlite.stmt.query.In;
+
+import java.util.ArrayList;
+
 public class IntegerArrayUtilities {
     public Boolean hasEvenLength(Integer[] array) {
-        return null;
+
+        return (array.length % 2 == 0);
     }
 
     public Integer[] range(int start, int stop) {
-        return null;
+        ArrayList<Integer> arrList = new ArrayList<>();
+        for (int i = start; i <= stop; i++) {
+            arrList.add(i);
+        }
+        Integer[] answer = new Integer[arrList.size()];
+                answer = arrList.toArray(answer);
+
+
+        return answer;
     }
 
     public Integer getSumOfFirstTwo(Integer[] array) {
-        return null;
+        Integer answer = array[0] + array[1];
+        return answer;
     }
 
     public Integer getProductOfFirstTwo(Integer[] array) {
-        return null;
+        Integer answer = array[0] * array[1];
+        return answer;
     }
 }
