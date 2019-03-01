@@ -1,8 +1,6 @@
 package com.zipcodewilmington.assessment2.part2;
 
-import com.j256.ormlite.stmt.query.In;
-
-import java.util.ArrayList;
+import java.util.*;
 
 public class ArrayUtility {
     public Integer[] merge(Integer[] array1, Integer[] array2) {
@@ -23,8 +21,19 @@ public class ArrayUtility {
     }
 
     public Integer[] rotate(Integer[] array, Integer index) {
+        List<Integer> list = new ArrayList<>();
+        Collections.addAll(list, array);
+        for (int i = 0; i < index; i++) {
+            list.add(array[i]);
+            list.remove(0);
+        }
 
-        return null;
+        Integer[] ans = new Integer[list.size()-index];
+        ans = list.toArray(ans);
+
+        System.out.println(list);
+
+        return ans;
     }
 
     public Integer countOccurrence(Integer[] array1, Integer[] array2, Integer valueToEvaluate) {

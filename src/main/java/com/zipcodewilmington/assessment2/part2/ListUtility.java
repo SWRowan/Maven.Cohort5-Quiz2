@@ -3,14 +3,16 @@ package com.zipcodewilmington.assessment2.part2;
 import com.j256.ormlite.stmt.query.In;
 
 import java.util.ArrayList;
+import java.util.LinkedHashSet;
 import java.util.List;
+import java.util.Set;
 
 
 public class ListUtility {
     List<Integer> answer = new ArrayList<>();
+    ArrayUtility theGoodStuff = new ArrayUtility();
 
     public Boolean add(Integer i) {
-        this.answer = answer;
         Integer baseLine = 0;
         answer.add(i);
         Integer size = answer.size();
@@ -25,19 +27,23 @@ public class ListUtility {
 
     public List<Integer> getUnique() {
         this.answer = answer;
-        return null;
+        Set<Integer> temp = new LinkedHashSet<>();
+        temp.addAll(answer);
+        answer.clear();
+        answer.addAll(temp);
+        return answer;
     }
 
     public String join() {
         this.answer = answer;
-        Integer[] quizTime = new Integer[answer.size()];
-        quizTime = answer.toArray(quizTime);
-        String placeHolder = "";
-        for (int i = 0; i < quizTime.length; i++) {
-            placeHolder += quizTime[i];
+
+        StringBuilder sb = new StringBuilder();
+        for (Integer x : answer){
+             sb.append(x);
+             sb.append(", ");
         }
-        String ans = placeHolder.join(" , ", placeHolder);
-        return ans;
+        sb.delete(sb.length()-2, sb.length());
+        return sb.toString();
     }
 
     public Integer mostCommon() {
